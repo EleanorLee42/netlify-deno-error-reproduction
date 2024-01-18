@@ -1,0 +1,19 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.sortImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "deno.enablePaths": ["./"],
+  "deno.enable": true,
+  "editor.inlayHints.enabled": "off",
+  "deno.lint": true,
+  "deno.unstable": false,
+}
