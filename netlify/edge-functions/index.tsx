@@ -2,7 +2,7 @@ import { handle } from 'hono/netlify';
 import { Hono, LinearRouter, SmartRouter, TrieRouter } from 'hono';
 import { render } from "@react-email/render";
 import React from 'react';
-import { Email } from '../../src/Email.tsx';
+import { TestEmail } from "../../src/templates/TestEmail.tsx";
 
 
 const app = new Hono({
@@ -20,7 +20,7 @@ app.get('/', (c) => {
 })
 
 app.get('/render', (c) => {
-  return c.html(render(<Email />))
+  return c.html(render(<TestEmail />))
 })
 
 export default handle(app)

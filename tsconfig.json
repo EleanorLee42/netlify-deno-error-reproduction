@@ -4,6 +4,7 @@
       "jsxImportSource": "react",
       "incremental": true,
       "allowJs": true,
+      "allowImportingTsExtensions": true,
       "noEmit": true,
       "esModuleInterop": true,
       "module": "esnext",
