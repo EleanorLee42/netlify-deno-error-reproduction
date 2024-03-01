@@ -1,9 +1,10 @@
-import { GoodbyeEmail } from "../../src/templates/GoodbyeEmail.tsx";
-import { HelloEmail } from "../../src/templates/HelloEmail.tsx";
+import React from "react";
+import { GoodbyePage } from "../../src/templates/GoodbyePage.tsx";
+import { HelloPage } from "../../src/templates/HelloPage.tsx";
 import { Email } from "./index.ts";
 
-const hello: Email<HelloEmail> = {
-  Template: HelloEmail,
+const hello: Email<HelloPage> = {
+  Template: HelloPage,
   exampleData: {
     example: {
       name: "Stephanie",
@@ -11,8 +12,8 @@ const hello: Email<HelloEmail> = {
   },
 };
 
-const goodbye: Email<GoodbyeEmail> = {
-  Template: GoodbyeEmail,
+const goodbye: Email<GoodbyePage> = {
+  Template: GoodbyePage,
   exampleData: {
     example: {
       name: "Eleanor",
@@ -21,6 +22,6 @@ const goodbye: Email<GoodbyeEmail> = {
 };
 
 export const messagesEndpoints = {
-  "hello-email": hello,
-  "goodbye-email": goodbye,
+  hello: hello,
+  goodbye: goodbye,
 };

@@ -6,20 +6,20 @@ import { PaddedSection } from "../PaddedSection.tsx";
 import { Table } from "../Table.tsx";
 import { Title } from "../Title.tsx";
 
-export type HelloEmail = {
+export type HelloPage = {
   name: string;
 };
-export const HelloEmail = ({ name }: HelloEmail) => {
+export const HelloPage = ({ name }: HelloPage) => {
   return (
     <Email>
       <PaddedSection>
         <Title
-          text="Welcome to the test email"
+          text="Welcome our test repo"
           as="h1"
           fontClassName="text-red-500"
         />
         <Text>Here is some text!</Text>
-        <Message name={name} type="hello" />
+        <Message name={name ?? "Bob"} type="hello" />
         <Table />
       </PaddedSection>
     </Email>
