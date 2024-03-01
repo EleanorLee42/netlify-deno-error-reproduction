@@ -9,8 +9,18 @@ const config: Config = {
       maxWidth: {
         email: "604px",
       },
+      colors: {
+        gray: {
+          background: {
+            DEFAULT: "#F4F5F7",
+          },
+          text: {
+            light: "#404040",
+          },
+        },
       },
     },
+  },
 };
 
 export default config;

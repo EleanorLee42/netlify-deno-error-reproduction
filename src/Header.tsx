@@ -1,7 +1,7 @@
 import { Section } from "@react-email/components";
 import React from "react";
 
-export const Header = () => {
+export const Header = ({showBanner}: {showBanner?: boolean}) => {
   
   return (
     <>
@@ -15,6 +15,7 @@ export const Header = () => {
           </div>
         </div>
       </Section>
+      {showBanner ? <Section className="bg-pink-300 text-center">a banner!</Section> : null}
     </>
   );
 };

@@ -1,26 +1,37 @@
-import { handle } from 'hono/netlify';
-import { Hono, LinearRouter, SmartRouter, TrieRouter } from 'hono';
+import type { Context as NetlifyContext } from "@netlify/edge";
 import { render } from "@react-email/render";
-import React from 'react';
-import { TestEmail } from "../../src/templates/TestEmail.tsx";
+import { Hono, LinearRouter, SmartRouter, TrieRouter } from "hono";
+import { handle } from "hono/netlify";
+import React from "react";
+import { GoodbyeEmail } from "../../src/templates/GoodbyeEmail.tsx";
+import { HelloEmail } from "../../src/templates/HelloEmail.tsx";
 
+export type Env = {
+  Bindings: {
+    context: NetlifyContext;
+  };
+};
 
-const app = new Hono({
+const app = new Hono<Env>({
   // Quick Router: https://hono.dev/api/presets#hono-quick
   router: new SmartRouter({
     routers: [new LinearRouter(), new TrieRouter()],
   }),
 });
 
-app.get('/country', (c) => {
-  return c.text('Hello Hono!')
-})
-app.get('/', (c) => {
-  return c.text('Hello tester!')
-})
+app.get("/country", (c) => {
+  return c.text("Hello Hono!");
+});
+app.get("/", (c) => {
+  return c.text("Hello tester!");
+});
 
-app.get('/render', (c) => {
-  return c.html(render(<TestEmail />))
-})
+app.get("/welcome-email", (c) => {
+  return c.html(render(<HelloEmail />));
+});
 
-export default handle(app)
+app.get("/goodbye-email", (c) => {
+  return c.html(render(<GoodbyeEmail />));
+});
+
+export default handle(app);
