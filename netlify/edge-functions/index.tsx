@@ -1,10 +1,11 @@
 import type { Context as NetlifyContext } from "@netlify/edge";
+import { Column, Link, Row } from "@react-email/components";
 import { render } from "@react-email/render";
 import { Hono, LinearRouter, SmartRouter, TrieRouter } from "hono";
 import { handle } from "hono/netlify";
 import React from "react";
-import { GoodbyeEmail } from "../../src/templates/GoodbyeEmail.tsx";
-import { HelloEmail } from "../../src/templates/HelloEmail.tsx";
+import { PaddedSection } from "../../src/PaddedSection.tsx";
+import routes, { Slug } from "../routes/index.ts";
 
 export type Env = {
   Bindings: {
@@ -19,19 +20,27 @@ const app = new Hono<Env>({
   }),
 });
 
-app.get("/country", (c) => {
-  return c.text("Hello Hono!");
-});
-app.get("/", (c) => {
-  return c.text("Hello tester!");
-});
-
-app.get("/welcome-email", (c) => {
-  return c.html(render(<HelloEmail />));
-});
-
-app.get("/goodbye-email", (c) => {
-  return c.html(render(<GoodbyeEmail />));
-});
+app.get("/", (c) =>
+  c.html(
+    render(
+      <PaddedSection>
+        <Row>
+          <Column>Page</Column>
+          <Column>Link</Column>
+        </Row>
+        {Object.keys(routes).map((contentUrl) => (
+          <Row>
+            <Column>{contentUrl}</Column>
+            <Column>
+              <Link href={`${contentUrl}/preview`}>
+                {Object.keys(routes[contentUrl as Slug].exampleData)[0]}
+              </Link>
+            </Column>
+          </Row>
+        ))}
+      </PaddedSection>
+    )
+  )
+);
 
 export default handle(app);

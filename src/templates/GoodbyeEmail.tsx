@@ -4,7 +4,11 @@ import { Message } from "../Message.tsx";
 import { PaddedSection } from "../PaddedSection.tsx";
 import { Title } from "../Title.tsx";
 
-export const GoodbyeEmail = () => {
+export type GoodbyeEmail = {
+  name: string;
+};
+
+export const GoodbyeEmail = ({ name }: GoodbyeEmail) => {
   return (
     <Email>
       <PaddedSection>
@@ -13,7 +17,7 @@ export const GoodbyeEmail = () => {
           as="h2"
           fontClassName="text-2xl text-blue-400"
         />
-        <Message name="Sandy" type="goodbye" />
+        <Message name={name} type="goodbye" />
       </PaddedSection>
     </Email>
   );
