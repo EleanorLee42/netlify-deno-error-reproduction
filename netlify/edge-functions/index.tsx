@@ -35,7 +35,12 @@ app.get("/", (c) =>
       <Html lang="en" dir="ltr">
         <Tailwind config={config}>
           <Section className="mt-10 max-w-md">
-            <Row className="my-2 text-2xl font-bold">
+            <Row>
+              <Column className="text-center text-3xl font-bold">
+                Welcome to our website
+              </Column>
+            </Row>
+            <Row className="mb-2 mt-4 text-2xl font-bold">
               <Column className="text-left">Page</Column>
               <Column className="text-right">Link</Column>
             </Row>

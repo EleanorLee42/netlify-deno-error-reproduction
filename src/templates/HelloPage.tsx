@@ -1,9 +1,7 @@
-import { Text } from "@react-email/components";
 import React from "react";
-import { Email } from "../Email.tsx";
 import { Message } from "../Message.tsx";
 import { PaddedSection } from "../PaddedSection.tsx";
-import { Table } from "../Table.tsx";
+import { Page } from "../Page.tsx";
 import { Title } from "../Title.tsx";
 
 export type HelloPage = {
@@ -11,17 +9,15 @@ export type HelloPage = {
 };
 export const HelloPage = ({ name }: HelloPage) => {
   return (
-    <Email>
+    <Page>
       <PaddedSection>
         <Title
-          text="Welcome our test repo"
+          text="Welcome to our test repo"
           as="h1"
-          fontClassName="text-red-500"
+          fontClassName="text-2xl text-red-500 my-8"
         />
-        <Text>Here is some text!</Text>
         <Message name={name ?? "Bob"} type="hello" />
-        <Table />
       </PaddedSection>
-    </Email>
+    </Page>
   );
 };

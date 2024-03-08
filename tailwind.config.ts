@@ -7,7 +7,7 @@ const config: Config = {
     },
     extend: {
       maxWidth: {
-        email: "604px",
+        page: "604px",
       },
       colors: {
         gray: {

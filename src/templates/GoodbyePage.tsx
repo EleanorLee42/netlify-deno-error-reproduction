@@ -1,7 +1,7 @@
 import React from "react";
-import { Email } from "../Email.tsx";
 import { Message } from "../Message.tsx";
 import { PaddedSection } from "../PaddedSection.tsx";
+import { Page } from "../Page.tsx";
 import { Title } from "../Title.tsx";
 
 export type GoodbyePage = {
@@ -10,15 +10,15 @@ export type GoodbyePage = {
 
 export const GoodbyePage = ({ name }: GoodbyePage) => {
   return (
-    <Email>
+    <Page>
       <PaddedSection>
         <Title
-          text="Goodbye from the test repo. Thanks for visiting!"
+          text="Goodbye from the test repo. Thanks for&nbsp;visiting!"
           as="h2"
-          fontClassName="text-2xl text-blue-400"
+          fontClassName="text-2xl text-blue-400 my-8 text-center"
         />
         <Message name={name} type="goodbye" />
       </PaddedSection>
-    </Email>
+    </Page>
   );
 };

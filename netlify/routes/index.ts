@@ -1,7 +1,7 @@
 import React from "react";
 import { messagesEndpoints } from "./messages.tsx";
 
-export type Email<T> = {
+export type Page<T> = {
   Template: React.FC<T>;
   exampleData: Record<string, T>;
 };
@@ -10,7 +10,7 @@ export type Slug = keyof typeof messagesEndpoints;
 
 export type EndpointMap = {
   // deno-lint-ignore no-explicit-any
-  [key in Slug]: Email<any>;
+  [key in Slug]: Page<any>;
 };
 
 const uniqueEndpoints = (endpointMaps: EndpointMap) => {

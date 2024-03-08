@@ -1,9 +1,9 @@
 import React from "react";
 import { GoodbyePage } from "../../src/templates/GoodbyePage.tsx";
 import { HelloPage } from "../../src/templates/HelloPage.tsx";
-import { Email } from "./index.ts";
+import { Page } from "./index.ts";
 
-const hello: Email<HelloPage> = {
+const hello: Page<HelloPage> = {
   Template: HelloPage,
   exampleData: {
     example: {
@@ -12,7 +12,7 @@ const hello: Email<HelloPage> = {
   },
 };
 
-const goodbye: Email<GoodbyePage> = {
+const goodbye: Page<GoodbyePage> = {
   Template: GoodbyePage,
   exampleData: {
     example: {
